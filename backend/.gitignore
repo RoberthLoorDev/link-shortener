@@ -1,0 +1,25 @@
+# Dependencias de Node.js
+/node_modules
+
+# Archivos de registro
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de entorno
+.env
+.env.test
+.env.local
+.env.development
+.env.production
+
+# Directorio de construcción de TypeScript
+/build
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Otros archivos y directorios generados
+.DS_Store
+Thumbs.db
