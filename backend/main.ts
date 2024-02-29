@@ -12,7 +12,7 @@ connectDB()
 
 app.use(
     sessions({
-        secret: "SDIAKUFBJO84723T",
+        secret: Config.PassportKey,
         resave: false,
         saveUninitialized: false,
     })
