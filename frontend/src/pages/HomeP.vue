@@ -4,7 +4,9 @@
   <!-- input link section -->
   <section class="flex items-center flex-col mt-14">
     <h1 class="text-white text-2xl font-medium">PREMIUM URL SHORTENER</h1>
-    <div class="bg-[#252429] w-[65%] flex h-14 mt-8 rounded-lg items-center">
+    <div
+      class="bg-[#252429] w-[90%] md:w-[65%] flex h-14 mt-8 rounded-lg items-center"
+    >
       <img src="../assets/link.png" alt="" class="w-5 h-5 ml-4 select-none" />
       <input
         type="text"
@@ -23,7 +25,7 @@
     </div>
     <div
       v-show="showResponse"
-      class="animate-fade-down animate-delay-50 animate-ease-in-out animate-fill-forwards flex items-center w-[65%] h-16 mt-3 shadow border-[1px] border-[#3E879B] rounded-lg rounded-br-3xl relative"
+      class="animate-fade-down animate-delay-50 animate-ease-in-out animate-fill-forwards flex items-center w-[90%] md:w-[65%] h-16 mt-3 shadow border-[1px] border-[#3E879B] rounded-lg rounded-br-3xl relative"
     >
       <img
         src="../assets/copy-link.png"
@@ -31,7 +33,7 @@
         class="w-5 h-5 ml-4 select-none mr-3 cursor-pointer"
         @click="copyLink"
       />
-      <div class="flex flex-col justify-center flex-1">
+      <div class="flex flex-col justify-center flex-1 overflow-hidden">
         <span class="text-white text-sm font-light opacity-50"
           >Shortened link</span
         >
@@ -45,7 +47,7 @@
       <img
         src="../assets/arrow-right.png"
         alt=""
-        class="w-7 h-w-7 mr-10 cursor-pointer"
+        class="w-8 h-6 mr-5 cursor-pointer pl-2"
         @click="redirectPage"
       />
       <div
@@ -58,9 +60,9 @@
 
   <section class="my-24 flex flex-col items-center">
     <h2 class="text-center text-white text-xl font-semibold">
-      LinkSwift: Streamline Your Surfing
+      Clipp.io: Streamline Your Surfing
     </h2>
-    <p class="text-white text-center w-96 mt-7">
+    <p class="text-white text-center w-80 md:w-96 mt-7">
       Convert lengthy URLs into concise ones with a single click. Maximize
       efficiency and streamline navigation across platforms.
     </p>
@@ -68,7 +70,10 @@
 
   <!-- cards section -->
   <section class="mb-10 flex justify-center flex-wrap">
-    <div class="shadow w-56 h-64 flex flex-col rounded-2xl relative mr-5 mb-5">
+    <!-- Card one -->
+    <div
+      class="shadow w-56 h-64 flex flex-col rounded-2xl relative mr-0 md:mr-5 mb-5 card"
+    >
       <div class="flex mx-4 items-center mt-6">
         <img
           src="../assets/efficiency.png"
@@ -88,8 +93,9 @@
       ></div>
     </div>
 
+    <!-- Card two -->
     <div
-      class="shadow w-56 h-72 flex flex-col rounded-2xl relative border-2 border-[#3E879B] mr-5 mb-5"
+      class="shadow w-56 h-72 flex flex-col rounded-2xl relative border-2 border-[#3E879B] md:mr-5 mb-5 card"
     >
       <div class="flex mx-4 items-center mt-6">
         <img
@@ -110,7 +116,8 @@
       ></div>
     </div>
 
-    <div class="shadow w-56 h-64 flex flex-col rounded-2xl relative mr-5 mb-5">
+    <!-- card three -->
+    <div class="shadow w-56 h-64 flex flex-col rounded-2xl relative mb-5 card">
       <div class="flex mx-4 items-center mt-6">
         <img
           src="../assets/data-analytics.png"
@@ -166,7 +173,6 @@
 
 <script lang="ts">
 import NavbarC from "@/components/NavbarC.vue";
-import router from "@/router";
 import { ref } from "vue";
 
 export default {
@@ -250,6 +256,19 @@ export default {
 
 <style>
 .shadow-info-copy {
-  box-shadow: 2px 2px 20px #2c485f;
+  box-shadow: 2px 2px 20px none;
+}
+.shadow-info-copy:hover {
+  box-shadow: 0px 0px 80px #3e879ba8;
+  transition: box-shadow 1s;
+}
+
+.card {
+  transition: box-shadow 0.5s ease; /* Transición gradual de la sombra */
+}
+
+.card:hover {
+  box-shadow: 0px 0px 80px #3e879ba8;
+  transition: box-shadow 1s;
 }
 </style>
