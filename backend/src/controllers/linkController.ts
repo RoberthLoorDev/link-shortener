@@ -39,6 +39,8 @@ export const createLinkShorter = async (req: Request, res: Response) => {
 export const redirectToUrl = async (req: Request, res: Response) => {
     try {
         const { shorterUrl } = req.params //vrclPcU
+        console.log(shorterUrl)
+
         const shorterURL = `${req.protocol}://${req.hostname}:5000/${shorterUrl}`
 
         const linkDataExist = await LinkModel.findOne({
@@ -47,7 +49,9 @@ export const redirectToUrl = async (req: Request, res: Response) => {
 
         const originalLinkExist = linkDataExist?.originalLink
 
-        if (originalLinkExist) res.redirect(originalLinkExist)
+        if (originalLinkExist) {
+            res.redirect(originalLinkExist)
+        }
     } catch (error) {
         console.error(error)
 
@@ -67,7 +71,6 @@ const characterGenerator = () => {
     for (let i = 0; i < 3; i++) {
         const randomIndice = Math.floor(Math.random() * stringCharacters.length)
         randomUrl = randomUrl + stringCharacters.charAt(randomIndice)
-        console.log(randomUrl)
     }
 
     return randomUrl

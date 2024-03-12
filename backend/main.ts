@@ -4,11 +4,15 @@ import Routes from "./src/routes"
 import { Config } from "./src/config"
 import passport from "./src/config/passportConfig"
 import sessions from "express-session"
+import cors from "cors"
+import { redirectToUrl } from "./src/controllers/linkController"
 
 export const app = express()
 const port = Config.Port
 app.use(express.json())
 connectDB()
+
+app.use(cors())
 
 app.use(
     sessions({
@@ -22,6 +26,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use("/api", Routes)
+app.get("/:shorterUrl", redirectToUrl)
 
 app.listen(port, () => {
     return console.log(`servidor corriendo en el puerto ${port}`)
