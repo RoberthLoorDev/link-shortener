@@ -72,7 +72,7 @@
   <section class="mb-10 flex justify-center flex-wrap">
     <!-- Card one -->
     <div
-      class="shadow w-56 h-64 flex flex-col rounded-2xl relative mr-0 md:mr-5 mb-5 card"
+      class="shadow w-56 h-64 flex flex-col rounded-2xl relative mr-0 md:mr-5 mb-5 card _ shadow-background"
     >
       <div class="flex mx-4 items-center mt-6">
         <img
@@ -95,7 +95,7 @@
 
     <!-- Card two -->
     <div
-      class="shadow w-56 h-72 flex flex-col rounded-2xl relative border-2 border-[#3E879B] md:mr-5 mb-5 card"
+      class="shadow w-56 h-72 flex flex-col rounded-2xl relative border-2 border-[#3E879B] md:mr-5 mb-5 shadow-background"
     >
       <div class="flex mx-4 items-center mt-6">
         <img
@@ -117,7 +117,9 @@
     </div>
 
     <!-- card three -->
-    <div class="shadow w-56 h-64 flex flex-col rounded-2xl relative mb-5 card">
+    <div
+      class="shadow w-56 h-64 flex flex-col rounded-2xl relative mb-5 shadow-background"
+    >
       <div class="flex mx-4 items-center mt-6">
         <img
           src="../assets/data-analytics.png"
@@ -259,15 +261,6 @@ export default {
   box-shadow: 2px 2px 20px none;
 }
 .shadow-info-copy:hover {
-  box-shadow: 0px 0px 80px #3e879ba8;
-  transition: box-shadow 1s;
-}
-
-.card {
-  transition: box-shadow 0.5s ease; /* Transición gradual de la sombra */
-}
-
-.card:hover {
   box-shadow: 0px 0px 80px #3e879ba8;
   transition: box-shadow 1s;
 }
