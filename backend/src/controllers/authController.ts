@@ -24,3 +24,5 @@ export const loginUser = (req: Request, res: Response, next: NextFunction) => {
         })
     })(req, res, next)
 }
+
+export const registerUser = (req: Request, res: Response) => {}

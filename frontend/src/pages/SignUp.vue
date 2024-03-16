@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <NavbarC></NavbarC>
+    <NavbarComponent></NavbarComponent>
     <div class="flex flex-1 justify-center items-center">
       <!-- box-login -->
       <div
@@ -125,12 +125,12 @@
 </template>
 
 <script lang="ts">
-import NavbarC from "@/components/NavbarC.vue";
+import NavbarComponent from "@/components/NavbarComponent.vue";
 
 export default {
   name: "SignUpPage",
   components: {
-    NavbarC,
+    NavbarComponent,
   },
 
   setup() {
