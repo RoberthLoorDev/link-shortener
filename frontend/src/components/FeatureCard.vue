@@ -1,10 +1,14 @@
 <template>
   <div
-    class="shadow w-56 h-auto flex flex-col rounded-2xl relative mb-5 shadow-background"
+    class="shadow w-56 h-auto flex flex-col rounded-2xl relative mb-5 mx-3 shadow-background border-transparent"
+    :style="{
+      borderColor: borderColor ? borderColor : '#222F3C',
+      borderWidth: '2px',
+    }"
   >
     <div class="flex mx-4 items-center mt-6">
       <img
-        src="../assets/data-analytics.png"
+        :src="icon"
         alt=""
         class="bg-[#1F2531] w-9 h-9 rounded-full p-[8px] mr-2"
       />
@@ -15,7 +19,8 @@
     </p>
 
     <div
-      class="bg-[#3E879B] w-[100%] h-[100%] absolute -z-10 rounded-2xl opacity-10"
+      class="w-[100%] h-[100%] absolute -z-10 rounded-2xl"
+      :style="{ backgroundColor }"
     ></div>
   </div>
 </template>
