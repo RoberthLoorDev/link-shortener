@@ -65,13 +65,19 @@
       efficiency and streamline navigation across platforms.
     </p>
   </section>
+
+  <CopyNotificationComponent v-if="showInfoCopy"></CopyNotificationComponent>
 </template>
 
 <script lang="ts">
 import { ref } from "vue";
+import CopyNotificationComponent from "./CopyNotificationComponent.vue";
 
 export default {
   name: "LinkShortenerComponent",
+  components: {
+    CopyNotificationComponent,
+  },
   setup() {
     const postData = ref({
       originalLink: "",
@@ -81,7 +87,6 @@ export default {
     const shortenedLink = ref("");
 
     const showInfoCopy = ref(false);
-    const playingAnimation = ref(true);
 
     const sendLinkToShorten = async () => {
       const requestOptions = {
@@ -103,10 +108,9 @@ export default {
         .then((data) => {
           showResponse.value = true;
           shortenedLink.value = data.data.shorterLink;
-          console.log(data);
         })
         .catch((error) => {
-          console.log("ERROR!!", error);
+          console.log(error);
         });
     };
 
@@ -124,14 +128,9 @@ export default {
 
     const showInfoCopyAnimation = () => {
       showInfoCopy.value = true;
-
       setTimeout(() => {
         showInfoCopy.value = false;
-        playingAnimation.value = false;
-        setTimeout(() => {
-          playingAnimation.value = true;
-        }, 1000);
-      }, 5000);
+      }, 6000);
     };
 
     return {
@@ -142,7 +141,6 @@ export default {
       redirectPage,
       copyLink,
       showInfoCopy,
-      playingAnimation,
     };
   },
 };
