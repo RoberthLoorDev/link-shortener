@@ -29,5 +29,5 @@ app.use("/api", Routes)
 app.get("/:shorterUrl", redirectToUrl)
 
 app.listen(port, () => {
-    return console.log(`servidor corriendo en el puerto ${port}`)
+    return console.log(`server running on port ${port}`)
 })

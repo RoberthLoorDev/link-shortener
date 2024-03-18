@@ -39,7 +39,6 @@ export const createLinkShorter = async (req: Request, res: Response) => {
 export const redirectToUrl = async (req: Request, res: Response) => {
     try {
         const { shorterUrl } = req.params //vrclPcU
-        console.log(shorterUrl)
 
         const shorterURL = `${req.protocol}://${req.hostname}:5000/${shorterUrl}`
 
