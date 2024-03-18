@@ -78,8 +78,6 @@ export default {
           }
         }, 10); // Intervalo de tiempo (ms) para suavizar la animación
       }
-
-      console.log(barVerticalAnimation.value);
     };
     return {
       barVerticalAnimation,
