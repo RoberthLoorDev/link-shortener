@@ -14,12 +14,14 @@
       />
 
       <div class="w-2 h-1"></div>
-      <button
-        class="text-[#1b1921] bg-[#4CBED9] w-20 h-8 rounded-xl text-sm font-medium mr-5"
-        @click="sendLinkToShorten"
-      >
-        Shorten
-      </button>
+      <!-- class="text-[#1b1921] bg-[#4CBED9] w-20 h-8 rounded-xl text-sm font-medium mr-5" -->
+      <ButtonComponent
+        title="Shorter"
+        textColor="#1b1921"
+        backgroundColor="#4CBED9"
+        :width="100"
+        class="mr-2"
+      ></ButtonComponent>
     </div>
     <div
       v-show="showResponse"
@@ -72,11 +74,13 @@
 <script lang="ts">
 import { ref } from "vue";
 import CopyNotificationComponent from "./CopyNotificationComponent.vue";
+import ButtonComponent from "./ButtonComponent.vue";
 
 export default {
   name: "LinkShortenerComponent",
   components: {
     CopyNotificationComponent,
+    ButtonComponent,
   },
   setup() {
     const postData = ref({

@@ -35,11 +35,14 @@
     </Transition>
 
     <div class="hidden md:flex md:items-center w-72 justify-between">
-      <button
-        class="px-7 py-[.4rem] rounded-xl text-base font-medium text-white bg-[#00aadb] hover:bg-[#0287b8] active:bg-[#0a6c94] transition ease-in-out duration-200"
-      >
-        Login
-      </button>
+      <ButtonComponent
+        title="Login"
+        backgroundColor="#4CBED9"
+        :width="100"
+        :height="40"
+        textColor="white"
+      ></ButtonComponent>
+
       <a href="/" class="text-white">Pricing</a>
       <a href="/" class="text-white">About me</a>
     </div>
@@ -48,9 +51,11 @@
 
 <script lang="ts">
 import { ref } from "vue";
+import ButtonComponent from "./ButtonComponent.vue";
 
 export default {
   name: "NavbarComponent",
+  components: { ButtonComponent },
   setup() {
     const iconBarVerticalAnimation = ref(0);
     const barVerticalAnimation = ref(false);
