@@ -4,12 +4,12 @@
     <div class="flex flex-1 justify-center items-center">
       <!-- box-login -->
       <div
-        class="flex w-[rem] h-[25rem] bg-[#1F222D] -mt-10 rounded-[15px] shadow-none"
+        class="flex h-[25rem] bg-[#1F212C] -mt-20 rounded-[15px] shadow-none"
       >
-        <div class="flex justify-center items-center w-[50%]">
+        <div class="hidden md:flex justify-center items-center w-[50%]">
           <img class="w-[20rem] ml-20" src="../assets/image-sign.png" alt="" />
         </div>
-        <div class="flex flex-col items-center w-[50%]">
+        <div class="flex flex-col items-center w-[100%] md:w-[50%]">
           <form
             action=""
             class="flex flex-col justify-center items-center w-[22rem]"
@@ -17,7 +17,7 @@
             <h3
               class="text-[#B2F1FF] text-[14px] font-semibold my-6 text-center"
             >
-              SIGN IN
+              SIGN UP
             </h3>
 
             <!-- inputs container-->
@@ -146,6 +146,12 @@ export default {
   flex-direction: column;
   min-height: 100vh;
   widows: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .background {
+    background: #1f222d;
+  }
 }
 
 .line_input {
