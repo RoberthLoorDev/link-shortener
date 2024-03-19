@@ -27,6 +27,15 @@ export default {
     FeatureCardsList,
     ButtonComponent,
   },
+  setup() {
+    const show = () => {
+      console.log("hola");
+    };
+
+    return {
+      show,
+    };
+  },
 };
 </script>
 
