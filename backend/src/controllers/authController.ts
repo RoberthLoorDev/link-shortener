@@ -25,4 +25,26 @@ export const loginUser = (req: Request, res: Response, next: NextFunction) => {
     })(req, res, next)
 }
 
-export const registerUser = (req: Request, res: Response) => {}
+export const registerUser = (req: Request, res: Response, next: NextFunction) => {
+    passport.authenticate("local-register", (error: Error, user: any, info: any) => {
+        if (error) {
+            return next(error)
+        }
+
+        if (!user) {
+            return res.status(400).json({ success: false, message: info.message })
+        }
+
+        req.logIn(user, (error) => {
+            if (error) {
+                return next(error)
+            }
+
+            return res.status(201).json({
+                success: true,
+                message: "User registered successfully",
+                data: user,
+            })
+        })
+    })(req, res, next)
+}
