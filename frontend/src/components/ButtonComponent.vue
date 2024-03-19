@@ -1,16 +1,18 @@
 <template>
   <button
-    class="text-base font-medium rounded-lg p-2"
+    class="text-base font-medium rounded-lg p-2 justify-center items-center"
     :style="{
-      color: textColor,
+      color: textColor ? textColor : 'white',
       '--hover-color': hoverColor,
       '--active-color': activeColor,
-      '--background-color': backgroundColor,
+      '--background-color': bgColor,
       height: height ? height + 'px' : '40px',
       width: width ? width + 'px' : '140px',
     }"
   >
-    {{ title }}
+    <span>
+      {{ title ? title : "Click me!" }}
+    </span>
   </button>
 </template>
 
@@ -29,6 +31,7 @@ export default {
   // eslint-disable-next-line
   setup(props: any) {
     const setHoverActiveColors = (hex: string) => {
+      if (!hex) hex = "#4CBED9";
       let r = parseInt(hex.substring(1, 3), 16);
       let g = parseInt(hex.substring(3, 5), 16);
       let b = parseInt(hex.substring(5, 7), 16);
@@ -47,22 +50,23 @@ export default {
         .toString(16)
         .padStart(6, "0")}`;
 
-      const backgroundColor = hex;
+      const bgColor = hex;
 
       return {
-        backgroundColor,
+        bgColor,
         hoverColor,
         activeColor,
       };
     };
 
-    const { hoverColor, activeColor } = setHoverActiveColors(
+    const { hoverColor, activeColor, bgColor } = setHoverActiveColors(
       props.backgroundColor
     );
 
     return {
       hoverColor,
       activeColor,
+      bgColor,
     };
   },
 };
@@ -71,7 +75,7 @@ export default {
 <style lang="scss" scoped>
 button {
   background-color: var(--background-color);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
