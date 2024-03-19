@@ -16,6 +16,7 @@
       <div class="w-2 h-1"></div>
       <!-- class="text-[#1b1921] bg-[#4CBED9] w-20 h-8 rounded-xl text-sm font-medium mr-5" -->
       <ButtonComponent
+        @click="sendLinkToShorter"
         title="Shorter"
         textColor="#1b1921"
         backgroundColor="#4CBED9"
@@ -58,7 +59,7 @@
     </div>
   </section>
 
-  <section class="my-24 flex flex-col items-center">
+  <section class="my-16 flex flex-col items-center">
     <h2 class="text-center text-white text-xl font-semibold">
       Clipp.io: Streamline Your Surfing
     </h2>
@@ -92,7 +93,7 @@ export default {
 
     const showInfoCopy = ref(false);
 
-    const sendLinkToShorten = async () => {
+    const sendLinkToShorter = async () => {
       const requestOptions = {
         method: "POST",
         headers: {
@@ -138,7 +139,7 @@ export default {
     };
 
     return {
-      sendLinkToShorten,
+      sendLinkToShorter,
       postData,
       showResponse,
       shortenedLink,
