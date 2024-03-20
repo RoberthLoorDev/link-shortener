@@ -10,3 +10,10 @@ export interface SignUpFormInterface {
   email: string;
   password: string;
 }
+
+export interface NotificationConfigInterface {
+  [key: string]: {
+    image: string;
+    color: string;
+  };
+}

@@ -69,18 +69,22 @@
     </p>
   </section>
 
-  <CopyNotificationComponent v-if="showInfoCopy"></CopyNotificationComponent>
+  <NotificationComponent
+    type="danger"
+    message="Copied link"
+    v-if="showInfoCopy"
+  ></NotificationComponent>
 </template>
 
 <script lang="ts">
 import { ref } from "vue";
-import CopyNotificationComponent from "./CopyNotificationComponent.vue";
+import NotificationComponent from "./NotificationComponent.vue";
 import ButtonComponent from "./ButtonComponent.vue";
 
 export default {
   name: "LinkShortenerComponent",
   components: {
-    CopyNotificationComponent,
+    NotificationComponent,
     ButtonComponent,
   },
   setup() {
