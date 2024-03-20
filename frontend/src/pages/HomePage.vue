@@ -4,11 +4,13 @@
   <FeatureCardsList></FeatureCardsList>
 
   <section class="flex mb-20 justify-center">
-    <ButtonComponent
-      title="Create Account"
-      backgroundColor="#B2F1FF"
-      textColor="#3C3C3C"
-    ></ButtonComponent>
+    <RouterLink to="/sign-up">
+      <ButtonComponent
+        title="Create Account"
+        backgroundColor="#B2F1FF"
+        textColor="#3C3C3C"
+      ></ButtonComponent>
+    </RouterLink>
   </section>
 </template>
 
