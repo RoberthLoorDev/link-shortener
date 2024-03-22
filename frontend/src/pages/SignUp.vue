@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-col items-center w-[100%] md:w-[50%]">
           <!-- Form login signup -->
-          <SignUpFormComponent></SignUpFormComponent>
+          <component :is="ActiveComponent"></component>
         </div>
       </div>
     </div>
@@ -19,16 +19,27 @@
 <script lang="ts">
 import NavbarComponent from "@/components/NavbarComponent.vue";
 import SignUpFormComponent from "@/components/SignUpFormComponent.vue";
+import LoginComponent from "@/components/LoginComponent.vue";
+import { useRoute } from "vue-router";
+import { ref } from "vue";
 
 export default {
   name: "SignUpPage",
   components: {
     NavbarComponent,
     SignUpFormComponent,
+    LoginComponent,
   },
 
   setup() {
-    return {};
+    const route = useRoute();
+    const ActiveComponent = ref(
+      route.path == "/login" ? LoginComponent : SignUpFormComponent
+    );
+
+    return {
+      ActiveComponent,
+    };
   },
 };
 </script>
