@@ -35,15 +35,13 @@
     </Transition>
 
     <div class="hidden md:flex md:items-center w-72 justify-between">
-      <a :href="destinationPage">
-        <ButtonComponent
-          :title="buttonText"
-          backgroundColor="#4CBED9"
-          :width="100"
-          :height="40"
-          textColor="white"
-        ></ButtonComponent>
-      </a>
+      <ButtonComponent
+        title="Sign up"
+        backgroundColor="#4CBED9"
+        :width="100"
+        :height="40"
+        textColor="white"
+      ></ButtonComponent>
       <a href="/" class="text-white">Pricing</a>
       <a href="/" class="text-white">About me</a>
     </div>
@@ -59,15 +57,6 @@ export default {
   name: "NavbarComponent",
   components: { ButtonComponent },
   setup() {
-    //definir el texto para el boton de iniciar sesion o registrarse
-    const route = useRoute();
-    const destinationPage = computed(() =>
-      route.path === "/login" ? "/sign-up" : "/login"
-    );
-    const buttonText = computed(() =>
-      route.path === "/login" ? "Sign Up" : "Login"
-    );
-
     const iconBarVerticalAnimation = ref(0);
     const barVerticalAnimation = ref(false);
 
@@ -99,9 +88,6 @@ export default {
       barVerticalAnimation,
       showBarVerticalAnimation,
       iconBarVerticalAnimation,
-
-      destinationPage,
-      buttonText,
     };
   },
 };

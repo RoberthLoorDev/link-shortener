@@ -1,6 +1,5 @@
 <template>
   <div class="background">
-    <NavbarComponent></NavbarComponent>
     <div class="flex flex-1 justify-center">
       <!-- box-signup -->
       <div class="flex h-[30rem] bg-[#1F212C] rounded-[15px] shadow-none mt-16">
@@ -8,8 +7,31 @@
           <img class="w-[23rem] ml-20" src="../assets/image-sign.png" alt="" />
         </div>
         <div class="flex flex-col items-center w-[100%] md:w-[50%]">
-          <!-- Mostrar el componente activo -->
-          <component :is="activeComponent"></component>
+          <!-- Signup -->
+          <div class="flex justify-center" v-if="loginSignup === 'signup'">
+            <p class="text-center text-[12px] text-[#9C9DA2] mt-8 select-none">
+              Do you already have an account?
+              <span
+                class="text-[#B5F5DF] cursor-pointer font-bold"
+                @click="setLoginForm"
+                >log in</span
+              >
+              <SignUpFormComponent></SignUpFormComponent>
+            </p>
+          </div>
+
+          <!-- Login -->
+          <div class="flex justify-center" v-else>
+            <p class="text-center text-[12px] text-[#9C9DA2] mt-8 select-none">
+              Do not you have an account yet?
+              <span
+                class="text-[#B5F5DF] cursor-pointer font-bold"
+                @click="setLoginForm"
+                >Sign up</span
+              >
+              <LoginComponent></LoginComponent>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -17,29 +39,32 @@
 </template>
 
 <script lang="ts">
-import NavbarComponent from "@/components/NavbarComponent.vue";
 import SignUpFormComponent from "@/components/SignUpFormComponent.vue";
 import LoginComponent from "@/components/LoginComponent.vue";
-import { useRoute } from "vue-router";
-import { computed } from "vue";
+import { ref } from "vue";
 
 export default {
   name: "SignUpPage",
   components: {
-    NavbarComponent,
     SignUpFormComponent,
     LoginComponent,
   },
   setup() {
-    const route = useRoute();
+    const loginSignup = ref("signup");
 
-    // Calcular dinámicamente qué componente mostrar
-    const activeComponent = computed(() => {
-      return route.path === "/login" ? LoginComponent : SignUpFormComponent;
-    });
+    const setLoginForm = () => {
+      if (loginSignup.value === "login") {
+        loginSignup.value = "signup";
+
+        return;
+      }
+
+      loginSignup.value = "login";
+    };
 
     return {
-      activeComponent,
+      loginSignup,
+      setLoginForm,
     };
   },
 };

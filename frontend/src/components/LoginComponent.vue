@@ -1,7 +1,7 @@
 <template>
   <form
     @submit.prevent="submitForm"
-    class="flex flex-col justify-center items-center w-[22rem] mt-10"
+    class="flex flex-col justify-center items-center w-[22rem] mt-5"
   >
     <h3 class="text-[#B2F1FF] text-[14px] font-semibold my-6 text-center">
       LOG IN
@@ -79,6 +79,9 @@ import { ref } from "vue";
 export default defineComponent({
   name: "LoginComponent",
   setup() {
+    //status form signup
+    const selectrSignupLogin = ref("sign-up");
+
     const formData = ref({
       email: "",
       password: "",
