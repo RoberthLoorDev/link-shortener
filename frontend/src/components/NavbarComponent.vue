@@ -20,8 +20,8 @@
     class="mx-[5%] md:mx-28 mt-8 md:mt-5 flex justify-center items-center md:justify-between relative"
   >
     <div>
-      <span class="text-white font-bold text-xl select-none text-center">
-        Clipp.io</span
+      <a href="/" class="text-white font-bold text-xl select-none text-center">
+        Clipp.io</a
       >
     </div>
     <Transition name="icon-menu">
@@ -35,14 +35,15 @@
     </Transition>
 
     <div class="hidden md:flex md:items-center w-72 justify-between">
-      <ButtonComponent
-        title="Login"
-        backgroundColor="#4CBED9"
-        :width="100"
-        :height="40"
-        textColor="white"
-      ></ButtonComponent>
-
+      <a :href="destinationPage">
+        <ButtonComponent
+          :title="buttonText"
+          backgroundColor="#4CBED9"
+          :width="100"
+          :height="40"
+          textColor="white"
+        ></ButtonComponent>
+      </a>
       <a href="/" class="text-white">Pricing</a>
       <a href="/" class="text-white">About me</a>
     </div>
@@ -50,13 +51,23 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import ButtonComponent from "./ButtonComponent.vue";
+import { useRoute } from "vue-router";
 
 export default {
   name: "NavbarComponent",
   components: { ButtonComponent },
   setup() {
+    //definir el texto para el boton de iniciar sesion o registrarse
+    const route = useRoute();
+    const destinationPage = computed(() =>
+      route.path === "/login" ? "/sign-up" : "/login"
+    );
+    const buttonText = computed(() =>
+      route.path === "/login" ? "Sign Up" : "Login"
+    );
+
     const iconBarVerticalAnimation = ref(0);
     const barVerticalAnimation = ref(false);
 
@@ -88,6 +99,9 @@ export default {
       barVerticalAnimation,
       showBarVerticalAnimation,
       iconBarVerticalAnimation,
+
+      destinationPage,
+      buttonText,
     };
   },
 };

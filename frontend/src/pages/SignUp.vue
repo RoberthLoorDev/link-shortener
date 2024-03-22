@@ -8,8 +8,8 @@
           <img class="w-[23rem] ml-20" src="../assets/image-sign.png" alt="" />
         </div>
         <div class="flex flex-col items-center w-[100%] md:w-[50%]">
-          <!-- Form login signup -->
-          <component :is="ActiveComponent"></component>
+          <!-- Mostrar el componente activo -->
+          <component :is="activeComponent"></component>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@ import NavbarComponent from "@/components/NavbarComponent.vue";
 import SignUpFormComponent from "@/components/SignUpFormComponent.vue";
 import LoginComponent from "@/components/LoginComponent.vue";
 import { useRoute } from "vue-router";
-import { ref } from "vue";
+import { computed } from "vue";
 
 export default {
   name: "SignUpPage",
@@ -30,20 +30,20 @@ export default {
     SignUpFormComponent,
     LoginComponent,
   },
-
   setup() {
     const route = useRoute();
-    const ActiveComponent = ref(
-      route.path == "/login" ? LoginComponent : SignUpFormComponent
-    );
+
+    // Calcular dinámicamente qué componente mostrar
+    const activeComponent = computed(() => {
+      return route.path === "/login" ? LoginComponent : SignUpFormComponent;
+    });
 
     return {
-      ActiveComponent,
+      activeComponent,
     };
   },
 };
 </script>
-
 <style>
 .background {
   background: linear-gradient(180deg, #1f3c4d 0%, #1f212c 60.08%);
