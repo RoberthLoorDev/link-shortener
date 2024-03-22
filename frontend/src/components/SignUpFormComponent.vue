@@ -80,6 +80,23 @@
       <span class="w-[100%] h-[2px] mt-1 - line_input"></span>
     </div>
 
+    <!-- input -->
+    <div class="relative flex justify-start flex-col w-[15rem] mt-6">
+      <input
+        spellcheck="false"
+        class="outline-none bg-transparent z-10 text-white _ input-text"
+        type="text"
+        id="name"
+        required
+      />
+      <label
+        class="absolute text-[14px] ml-1 text-[#62646C] select-none -z-5 _ label-input"
+        for="name"
+        >Repeat password:</label
+      >
+      <span class="w-[100%] h-[2px] mt-1 - line_input"></span>
+    </div>
+
     <button
       type="submit"
       class="relative w-[15rem] flex justify-center items-center border-[#B2F1FF] border-[2px] mt-10 rounded-[5px] h-[2rem] text-[14px] hover:border-[#62e0fe] active:border-[#0288b8d7]"

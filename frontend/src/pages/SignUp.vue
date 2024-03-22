@@ -1,13 +1,11 @@
 <template>
   <div class="background">
     <NavbarComponent></NavbarComponent>
-    <div class="flex flex-1 justify-center items-center">
+    <div class="flex flex-1 justify-center">
       <!-- box-signup -->
-      <div
-        class="flex h-[25rem] bg-[#1F212C] -mt-20 rounded-[15px] shadow-none"
-      >
+      <div class="flex h-[30rem] bg-[#1F212C] rounded-[15px] shadow-none mt-16">
         <div class="hidden md:flex justify-center items-center w-[50%]">
-          <img class="w-[20rem] ml-20" src="../assets/image-sign.png" alt="" />
+          <img class="w-[23rem] ml-20" src="../assets/image-sign.png" alt="" />
         </div>
         <div class="flex flex-col items-center w-[100%] md:w-[50%]">
           <!-- Form login signup -->
@@ -37,7 +35,7 @@ export default {
 
 <style>
 .background {
-  background: linear-gradient(180deg, #1f3c4d 0%, #1f212c 70.08%);
+  background: linear-gradient(180deg, #1f3c4d 0%, #1f212c 60.08%);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
