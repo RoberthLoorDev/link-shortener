@@ -35,13 +35,15 @@
     </Transition>
 
     <div class="hidden md:flex md:items-center w-72 justify-between">
-      <ButtonComponent
-        title="Sign up"
-        backgroundColor="#4CBED9"
-        :width="100"
-        :height="40"
-        textColor="white"
-      ></ButtonComponent>
+      <RouterLink to="/sign-up">
+        <ButtonComponent
+          title="Sign up"
+          backgroundColor="#4CBED9"
+          :width="100"
+          :height="40"
+          textColor="white"
+        ></ButtonComponent>
+      </RouterLink>
       <a href="/" class="text-white">Pricing</a>
       <a href="/" class="text-white">About me</a>
     </div>
