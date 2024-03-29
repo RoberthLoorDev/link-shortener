@@ -17,6 +17,7 @@ const LinkSchema = new Schema({
 
     clicks: {
         type: Number,
+        default: 0,
     },
 })
 

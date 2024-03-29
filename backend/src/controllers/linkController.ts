@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { LinkModel } from "../models/linkModel"
 import { Utils } from "../utils"
+import { link } from "fs"
 
 export const createLinkShorter = async (req: Request, res: Response) => {
     try {
@@ -38,7 +39,7 @@ export const createLinkShorter = async (req: Request, res: Response) => {
 
 export const redirectToUrl = async (req: Request, res: Response) => {
     try {
-        const { shorterUrl } = req.params //vrclPcU
+        const { shorterUrl } = req.params
 
         const shorterURL = `${req.protocol}://${req.hostname}:5000/${shorterUrl}`
 
@@ -46,11 +47,17 @@ export const redirectToUrl = async (req: Request, res: Response) => {
             shorterLink: shorterURL,
         })
 
-        const originalLinkExist = linkDataExist?.originalLink
-
-        if (originalLinkExist) {
-            res.redirect(originalLinkExist)
+        if (!linkDataExist) {
+            return res.status(404).json({
+                success: false,
+                message: "Link not found",
+            })
         }
+
+        linkDataExist.clicks++
+        await linkDataExist.save()
+
+        res.redirect(linkDataExist.originalLink)
     } catch (error) {
         console.error(error)
 
