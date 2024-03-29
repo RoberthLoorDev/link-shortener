@@ -1,4 +1,11 @@
 <template>
+  <div class="w-[100%] absolute top-0 left-0">
+    <NotificationComponent
+      v-if="showNotificationSuccess"
+      type="info"
+      message="Successful registration"
+    ></NotificationComponent>
+  </div>
   <form
     @submit.prevent="submitForm"
     class="flex flex-col justify-center items-center w-[22rem]"
@@ -68,7 +75,7 @@
         v-model="formData.password"
         spellcheck="false"
         class="outline-none bg-transparent z-10 text-white _ input-text"
-        type="text"
+        type="password"
         id="name"
         required
       />
@@ -85,7 +92,7 @@
       <input
         spellcheck="false"
         class="outline-none bg-transparent z-10 text-white _ input-text"
-        type="text"
+        type="password"
         id="name"
         required
       />
@@ -127,9 +134,13 @@
 
 <script>
 import { ref } from "vue";
-import { loginSignup } from "../components/SignUpFormComponent.vue";
+import { useRouter } from "vue-router";
+import NotificationComponent from "./NotificationComponent.vue";
 
 export default {
+  components: {
+    NotificationComponent,
+  },
   setup() {
     const formData = ref({
       names: "",
@@ -137,6 +148,9 @@ export default {
       email: "",
       password: "",
     });
+    const router = useRouter();
+
+    const showNotificationSuccess = ref(false);
 
     const submitForm = async () => {
       const requestOptions = {
@@ -158,14 +172,18 @@ export default {
         .then((data) => {
           console.log(data.data);
 
-          loginSignup.value = "login";
+          showNotificationSuccess.value = true;
+
+          setTimeout(() => {
+            router.push("/login");
+          }, 3000);
         })
         .catch((error) => {
           console.log(error);
         });
     };
 
-    return { submitForm, formData };
+    return { submitForm, formData, showNotificationSuccess };
   },
 };
 </script>
