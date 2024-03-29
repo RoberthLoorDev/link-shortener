@@ -6,30 +6,18 @@
         <div class="hidden md:flex justify-center items-center w-[50%]">
           <img class="w-[23rem] ml-20" src="../assets/image-sign.png" alt="" />
         </div>
+
         <div class="flex flex-col items-center w-[100%] md:w-[50%]">
           <!-- Signup -->
-          <div class="flex justify-center" v-if="loginSignup === 'signup'">
+          <div class="flex justify-center">
             <p class="text-center text-[12px] text-[#9C9DA2] mt-8 select-none">
               Do you already have an account?
-              <span
-                class="text-[#B5F5DF] cursor-pointer font-bold"
-                @click="setLoginForm"
-                >log in</span
-              >
+              <RouterLink to="/login">
+                <span class="text-[#B5F5DF] cursor-pointer font-bold"
+                  >log in</span
+                >
+              </RouterLink>
               <SignUpFormComponent></SignUpFormComponent>
-            </p>
-          </div>
-
-          <!-- Login -->
-          <div class="flex justify-center" v-else>
-            <p class="text-center text-[12px] text-[#9C9DA2] mt-8 select-none">
-              Do not you have an account yet?
-              <span
-                class="text-[#B5F5DF] cursor-pointer font-bold"
-                @click="setLoginForm"
-                >Sign up</span
-              >
-              <LoginComponent></LoginComponent>
             </p>
           </div>
         </div>
@@ -40,18 +28,18 @@
 
 <script lang="ts">
 import SignUpFormComponent from "@/components/SignUpFormComponent.vue";
-import LoginComponent from "@/components/LoginComponent.vue";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "SignUpPage",
   components: {
     SignUpFormComponent,
-    LoginComponent,
   },
   setup() {
-    const loginSignup = ref("signup");
+    const router = useRouter();
 
+    const loginSignup = ref("signup");
     const setLoginForm = () => {
       if (loginSignup.value === "login") {
         loginSignup.value = "signup";
@@ -65,6 +53,7 @@ export default {
     return {
       loginSignup,
       setLoginForm,
+      router,
     };
   },
 };

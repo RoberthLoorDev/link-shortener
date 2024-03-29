@@ -126,8 +126,9 @@
 </template>
 
 <script>
-import { SignUpFormInterface } from "../interfaces/interfaces";
 import { ref } from "vue";
+import { loginSignup } from "../components/SignUpFormComponent.vue";
+
 export default {
   setup() {
     const formData = ref({
@@ -156,6 +157,8 @@ export default {
         })
         .then((data) => {
           console.log(data.data);
+
+          loginSignup.value = "login";
         })
         .catch((error) => {
           console.log(error);
