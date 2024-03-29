@@ -1,4 +1,11 @@
 <template>
+  <div class="w-[100%] absolute top-0 left-0">
+    <NotificationComponent
+      v-if="showNotificationSuccess"
+      type="info"
+      message="Successful login"
+    ></NotificationComponent>
+  </div>
   <form
     @submit.prevent="submitForm"
     class="flex flex-col justify-center items-center w-[22rem] mt-5"
@@ -75,17 +82,24 @@
 import router from "@/router";
 import { defineComponent } from "vue";
 import { ref } from "vue";
+import NotificationComponent from "./NotificationComponent.vue";
 
 export default defineComponent({
   name: "LoginComponent",
+
+  components: {
+    NotificationComponent,
+  },
+
   setup() {
     //status form signup
-    const selectrSignupLogin = ref("sign-up");
 
     const formData = ref({
       email: "",
       password: "",
     });
+
+    const showNotificationSuccess = ref(false);
 
     const submitForm = async () => {
       const requestOptions = {
@@ -102,18 +116,28 @@ export default defineComponent({
             throw new Error("Error");
           }
 
+          if (!response.ok) {
+            if (response.status === 404) {
+              throw new Error("User no founded: " + response.status);
+            }
+          }
+
           return response.json();
         })
         .then((data) => {
-          console.log(data.data);
-          router.push("/");
+          console.log(data);
+          showNotificationSuccess.value = true;
+
+          setTimeout(() => {
+            router.push("/");
+          }, 2000);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     };
 
-    return { submitForm, formData };
+    return { submitForm, formData, showNotificationSuccess };
   },
 });
 </script>
