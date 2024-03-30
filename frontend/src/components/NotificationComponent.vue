@@ -1,6 +1,6 @@
 <template>
   <Transition name="slide-in-down">
-    <div v-if="isShown" class="absolute flex top-0 w-[100%] justify-center">
+    <div v-if="isShown" class="fixed flex top-0 w-[100%] justify-center">
       <div
         class="flex py-3 px-5 justify-center items-center rounded-lg mt-3 shadow-info-copy"
         :style="{ backgroundColor: color }"
