@@ -70,7 +70,7 @@
   </section>
 
   <NotificationComponent
-    type="danger"
+    type="info"
     message="Copied link"
     v-if="showInfoCopy"
   ></NotificationComponent>
@@ -80,6 +80,7 @@
 import { ref } from "vue";
 import NotificationComponent from "./NotificationComponent.vue";
 import ButtonComponent from "./ButtonComponent.vue";
+import { LinkToSaveLocalStorageInterface } from "../interfaces/interfaces";
 
 export default {
   name: "LinkShortenerComponent",
@@ -94,7 +95,6 @@ export default {
 
     const showResponse = ref(false);
     const shortenedLink = ref("");
-
     const showInfoCopy = ref(false);
 
     const sendLinkToShorter = async () => {
@@ -117,9 +117,36 @@ export default {
         .then((data) => {
           showResponse.value = true;
           shortenedLink.value = data.data.shorterLink;
+
+          //guardar linsk en el local storage
+          const originalLink = data.data.originalLink;
+          const shorterLink = data.data.shorterLink;
+          const linkForSaveToLocalStorage = {
+            originalLink,
+            shorterLink,
+          };
+
+          //obtener enlaces, convertirlos a array, agregar el nuevo array y volver a guardarlo
+
+          const savedLinksJson = localStorage.getItem("savedLinks");
+          if (savedLinksJson !== null) {
+            const savedLinks = JSON.parse(
+              savedLinksJson
+            ) as LinkToSaveLocalStorageInterface[];
+
+            //
+            savedLinks.push(linkForSaveToLocalStorage);
+
+            localStorage.setItem("savedLinks", JSON.stringify(savedLinks));
+          } else {
+            localStorage.setItem(
+              "savedLinks",
+              JSON.stringify([linkForSaveToLocalStorage])
+            );
+          }
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     };
 
