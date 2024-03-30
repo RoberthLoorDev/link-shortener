@@ -1,6 +1,7 @@
 <template>
   <NavbarComponent></NavbarComponent>
   <LinkShortenerComponent></LinkShortenerComponent>
+  <TableLinksComponent></TableLinksComponent>
   <FeatureCardsList></FeatureCardsList>
 
   <section class="flex mb-20 justify-center">
@@ -19,6 +20,7 @@ import NavbarComponent from "@/components/NavbarComponent.vue";
 import LinkShortenerComponent from "@/components/LinkShortenerComponent.vue";
 import FeatureCardsList from "@/components/FeatureCardsList.vue";
 import ButtonComponent from "@/components/ButtonComponent.vue";
+import TableLinksComponent from "@/components/TableLinksComponent.vue";
 
 export default {
   name: "HomePage",
@@ -27,6 +29,7 @@ export default {
     NavbarComponent,
     LinkShortenerComponent,
     FeatureCardsList,
+    TableLinksComponent,
     ButtonComponent,
   },
   setup() {
