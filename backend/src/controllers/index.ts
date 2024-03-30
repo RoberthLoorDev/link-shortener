@@ -1,4 +1,4 @@
-import { createLinkShorter, redirectToUrl } from "./linkController"
+import { createLinkShorter, redirectToUrl, getClicks } from "./linkController"
 import { createUser } from "./userController"
 import { loginUser, registerUser } from "./authController"
 
@@ -8,4 +8,5 @@ export const Controllers = {
     createUser,
     loginUser,
     registerUser,
+    getClicks,
 }

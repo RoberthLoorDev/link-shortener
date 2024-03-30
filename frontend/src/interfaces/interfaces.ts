@@ -17,3 +17,9 @@ export interface NotificationConfigInterface {
     color: string;
   };
 }
+
+export interface LinkToSaveLocalStorageInterface {
+  originalLink: string;
+  shorterLink: string;
+  clicks?: number;
+}

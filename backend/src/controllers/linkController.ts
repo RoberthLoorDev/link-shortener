@@ -69,6 +69,31 @@ export const redirectToUrl = async (req: Request, res: Response) => {
     }
 }
 
+export const getClicks = async (req: Request, res: Response) => {
+    try {
+        const links = await LinkModel.find()
+
+        const clicksArray = links.map((link) => ({
+            shorterLink: link.shorterLink,
+            clicks: link.clicks,
+        }))
+
+        res.status(200).json({
+            success: true,
+            message: "Links found",
+            data: clicksArray,
+        })
+    } catch (error) {
+        console.error(error)
+
+        res.status(400).json({
+            success: false,
+            message: "Error when searching links",
+            error: error,
+        })
+    }
+}
+
 const characterGenerator = () => {
     //create shorter link
     const stringCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
