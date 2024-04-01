@@ -7,7 +7,7 @@ import sessions from "express-session"
 import cors from "cors"
 import { redirectToUrl } from "./src/controllers/linkController"
 
-export const app = express()
+const app = express()
 
 const port = Config.Port
 
@@ -29,3 +29,7 @@ app.get("/:shorterUrl", redirectToUrl)
 app.listen(port, () => {
     return console.log(`server running on port ${port}`)
 })
+
+export default function main() {
+    return app
+}
