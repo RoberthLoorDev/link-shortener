@@ -1,5 +1,5 @@
 import express from "express"
-import { connectDB } from "./src/database/index"
+import { configureSessions, connectDB } from "./src/database/index"
 import Routes from "./src/routes"
 import { Config } from "./src/config"
 import passport from "./src/config/passportConfig"
@@ -11,7 +11,10 @@ const app = express()
 const port = Config.Port
 
 app.use(express.json())
-connectDB(app)
+connectDB()
+
+configureSessions(app)
+
 app.use(cors())
 
 app.use(passport.initialize())
