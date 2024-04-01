@@ -1,5 +1,5 @@
 <template>
-  <section v-show="linksArray.length > 0" class="mb-20 flex justify-center">
+  <section class="mb-20 flex justify-center">
     <div
       class="w-[90%] md:w-[65%] flex justify-center rounded-lg border-[#3E879B] border-2 flex-col _ shadow-background"
     >
@@ -18,14 +18,23 @@
                 Original link
               </th>
               <th
-                class="text-left text-white text-sm font-semibold w-[10%] mr-5 hidden lg:block"
+                class="text-left text-white text-sm font-semibold w-[10%] hidden lg:block"
               >
                 Clicks
               </th>
             </tr>
           </thead>
-          <tbody class="max-h-[25rem] flex flex-col overflow-y-auto w-full">
+          <tbody
+            class="flex flex-col overflow-y-auto w-full max-h-[25rem] min-h-[25rem]"
+          >
+            <div
+              v-if="linksArray.length == 0"
+              class="h-[20rem] flex justify-center items-center text-white text-base"
+            >
+              <span class="opacity-30">No saved links</span>
+            </div>
             <tr
+              v-else
               v-for="(link, index) in linksArray"
               :key="index"
               class="border-b-2 border-blue-400 border-opacity-20 h-12 flex mb-5 pb-2"
@@ -40,7 +49,7 @@
                   alt=""
                 />
                 <a :href="link.shorterLink" target="_blank" id="id_link_table">
-                  <span class="max-w-[1rem]">
+                  <span>
                     {{ link.shorterLink }}
                   </span>
                 </a>
@@ -75,7 +84,7 @@ import { LinkToSaveLocalStorageInterface } from "@/interfaces/interfaces";
 import NotificationComponent from "./NotificationComponent.vue";
 import { onMounted, ref } from "vue";
 
-import { getClicksOfLinks, getLinksSavedInLocalStorage } from "@/utils";
+import { getClicksOfLinks } from "@/utils";
 
 export default {
   name: "TableLinkComponent",
@@ -103,6 +112,8 @@ export default {
     onMounted(async () => {
       linksArray.value = await getClicksOfLinks(); // Asigna los enlaces actualizados a linksArray
     });
+
+    // localStorage.clear();
 
     return {
       copyLink,
