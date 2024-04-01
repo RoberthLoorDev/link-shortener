@@ -17,7 +17,7 @@ Clipp.io is a link shortening project developed with Express.js, Vue.js, and Mon
 
 ## Installation and Usage
 
-1. Clone this repository: `git clone https://github.com/tu-usuario/link-shortener.git`
+1. Clone this repository: `git clone https://github.com/RoberthLoorDev/link-shortener`
 2. Install frontend dependencies: `cd frontend && npm install`
 3. Install client dependencies: `cd backend && npm install`
 4. Set up necessary environment variables (such as MongoDB connection string).
