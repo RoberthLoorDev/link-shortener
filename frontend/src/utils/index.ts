@@ -44,7 +44,7 @@ export const getClicksOfLinks = (): Promise<
             linkToUpdate.clicks = item.clicks;
           }
         });
-        resolve(links); // Resolve the promise with the updated links
+        resolve(links.reverse()); // Resolve the promise with the updated links
       })
       .catch((error) => {
         console.error(error);
