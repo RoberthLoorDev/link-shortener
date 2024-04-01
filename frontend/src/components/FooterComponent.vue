@@ -3,7 +3,7 @@
     class="bg-[#1B1720] h-16 w-[100%] flex justify-between items-center px-20 mt-52"
   >
     <div class="opacity-30">
-      <span class="text-white text-sm">Autor: Roberth Loor </span>
+      <span class="text-white text-sm">Author: Roberth Loor </span>
     </div>
     <div class="flex opacity-30">
       <a

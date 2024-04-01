@@ -83,7 +83,7 @@ export default {
   setup() {
     const showIfCopiedText = ref(false);
 
-    //array para guardar enlaces
+    //array to save links
     const linksArray = ref<LinkToSaveLocalStorageInterface[]>([]);
     const linkName = ref("");
 
@@ -100,7 +100,7 @@ export default {
       return linksArray;
     };
 
-    //copiar link
+    //copy link
     const copyLink = () => {
       const link = document.getElementById("id_link_table")?.innerText;
 
@@ -115,7 +115,7 @@ export default {
       }
     };
 
-    //consultar los clicks
+    //get clicks numbers
     const getClicksOfLinks = () => {
       const requestOptions = {
         method: "GET",
@@ -133,14 +133,12 @@ export default {
         })
         .then((data) => {
           const links = getLinksSavedInLocalStorage();
-          // Iterar sobre los datos recibidos
           data.data.forEach((item: any) => {
-            // Encontrar el enlace correspondiente en links.value
             const linkToUpdate = links?.value.find(
               (link) => link.shorterLink === item.shorterLink
             );
 
-            // Si se encuentra el enlace, actualizar el número de clics
+            // If link is found, update the number of clicks
             if (linkToUpdate) {
               linkToUpdate.clicks = item.clicks;
             }
@@ -169,21 +167,21 @@ export default {
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.118);
 }
 
-/* Estilos para el scroll del tbody */
+/* Styles for tbody scroll */
 tbody::-webkit-scrollbar {
-  width: 5px; /* Ancho del scroll */
+  width: 5px; /* Scroll Width */
 }
 
 tbody::-webkit-scrollbar-track {
-  background-color: transparent; /* Color de fondo de la pista del scroll */
+  background-color: transparent;
 }
 
 tbody::-webkit-scrollbar-thumb {
-  background-color: #4cbed9; /* Color del pulgar (la barra de scroll) */
-  border-radius: 4px; /* Borde redondeado del pulgar */
+  background-color: #4cbed9;
+  border-radius: 4px;
 }
 
 tbody::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Color del pulgar al pasar el mouse */
+  background-color: #555;
 }
 </style>

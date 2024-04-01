@@ -64,33 +64,33 @@ export default {
     const iconBarVerticalAnimation = ref(0);
     const barVerticalAnimation = ref(false);
 
-    const showBarVerticalAnimation = () => {
-      barVerticalAnimation.value = !barVerticalAnimation.value;
+    // const showBarVerticalAnimation = () => {
+    //   barVerticalAnimation.value = !barVerticalAnimation.value;
 
-      // Hacer girar la imagen de forma progresiva
-      if (iconBarVerticalAnimation.value === 0) {
-        let angle = 0;
-        const interval = setInterval(() => {
-          angle += 5; // Incremento gradual de 5 grados
-          iconBarVerticalAnimation.value = angle;
-          if (angle >= 90) {
-            clearInterval(interval);
-          }
-        }, 10); // Intervalo de tiempo (ms) para suavizar la animación
-      } else if (iconBarVerticalAnimation.value === 90) {
-        let angle = 90;
-        const interval = setInterval(() => {
-          angle -= 5; // Decremento gradual de 5 grados
-          iconBarVerticalAnimation.value = angle;
-          if (angle <= 0) {
-            clearInterval(interval);
-          }
-        }, 10); // Intervalo de tiempo (ms) para suavizar la animación
-      }
-    };
+    //   // Hacer girar la imagen de forma progresiva
+    //   if (iconBarVerticalAnimation.value === 0) {
+    //     let angle = 0;
+    //     const interval = setInterval(() => {
+    //       angle += 5; // Incremento gradual de 5 grados
+    //       iconBarVerticalAnimation.value = angle;
+    //       if (angle >= 90) {
+    //         clearInterval(interval);
+    //       }
+    //     }, 10); // Intervalo de tiempo (ms) para suavizar la animación
+    //   } else if (iconBarVerticalAnimation.value === 90) {
+    //     let angle = 90;
+    //     const interval = setInterval(() => {
+    //       angle -= 5; // Decremento gradual de 5 grados
+    //       iconBarVerticalAnimation.value = angle;
+    //       if (angle <= 0) {
+    //         clearInterval(interval);
+    //       }
+    //     }, 10); // Intervalo de tiempo (ms) para suavizar la animación
+    //   }
+    // };
     return {
       barVerticalAnimation,
-      showBarVerticalAnimation,
+      // showBarVerticalAnimation,
       iconBarVerticalAnimation,
     };
   },

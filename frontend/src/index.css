@@ -18,7 +18,7 @@ body {
 /* Animation shadow background */
 
 .shadow-background {
-  transition: box-shadow 0.5s ease; /* Transición gradual de la sombra */
+  transition: box-shadow 0.5s ease;
 }
 
 .shadow-background:hover {
