@@ -21,7 +21,7 @@
   >
     <div>
       <a href="/" class="text-white font-bold text-2xl select-none text-center">
-        Clipp.io</a
+        LiteLnk</a
       >
     </div>
     <!-- <Transition name="icon-menu">

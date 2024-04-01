@@ -61,7 +61,7 @@
 
   <section class="my-16 flex flex-col items-center">
     <h2 class="text-center text-white text-xl font-semibold">
-      Clipp.io: Streamline Your Surfing
+      LiteLnk: Streamline Your Surfing
     </h2>
     <p class="text-white text-center w-80 md:w-96 mt-7">
       Convert lengthy URLs into concise ones with a single click. Maximize

@@ -1,6 +1,6 @@
-## Clipp.io
+## LiteLnk
 
-Clipp.io is a link shortening project developed with Express.js, Vue.js, and Mongoose. It allows users to input a long URL and obtain a shortened version of it. The shortened links are stored in the browser's local storage, eliminating the need for a user account.
+LiteLnk is a link shortening project developed with Express.js, Vue.js, and Mongoose. It allows users to input a long URL and obtain a shortened version of it. The shortened links are stored in the browser's local storage, eliminating the need for a user account.
 
 ## Features
 
