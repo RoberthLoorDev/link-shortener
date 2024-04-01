@@ -21,15 +21,13 @@ app.use(cors())
 //         saveUninitialized: false,
 //     })
 // )
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 app.use("/api", Routes)
 app.get("/:shorterUrl", redirectToUrl)
 
-app.listen(port, () => {
-    return console.log(`server running on port ${port}`)
+app.get("/", (req, res) => {
+    res.send("<h1>Hola mundo</h1>")
 })
 
-export default function main() {
-    return app
-}
+app.listen(5000, () => {})
