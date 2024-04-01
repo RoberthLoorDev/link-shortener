@@ -8,23 +8,21 @@ import cors from "cors"
 import { redirectToUrl } from "./src/controllers/linkController"
 
 export const app = express()
+
 const port = Config.Port
+
 app.use(express.json())
 connectDB()
-
 app.use(cors())
-
-app.use(
-    sessions({
-        secret: Config.PassportKey,
-        resave: false,
-        saveUninitialized: false,
-    })
-)
-
-app.use(passport.initialize())
-app.use(passport.session())
-
+// app.use(
+//     sessions({
+//         secret: Config.PassportKey,
+//         resave: false,
+//         saveUninitialized: false,
+//     })
+// )
+// app.use(passport.initialize())
+// app.use(passport.session())
 app.use("/api", Routes)
 app.get("/:shorterUrl", redirectToUrl)
 
