@@ -1,7 +1,7 @@
 <template>
   <!-- input link section -->
   <section class="flex items-center flex-col mt-14">
-    <h1 class="text-white text-2xl font-medium">PREMIUM URL SHORTENER</h1>
+    <h1 class="text-white text-xl font-medium">PREMIUM URL SHORTENER</h1>
     <div
       class="bg-[#252429] w-[90%] md:w-[65%] flex h-14 mt-8 rounded-lg items-center"
     >

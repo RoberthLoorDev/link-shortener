@@ -1,5 +1,5 @@
 <template>
-  <Transition name="lateral-menu">
+  <!-- <Transition name="lateral-menu">
     <div
       v-if="barVerticalAnimation"
       class="bg-[#1F222D] w-52 h-[100%] top-0 right-0 z-10 fixed rounded-tl-3xl shadow-vertical-menu"
@@ -14,17 +14,17 @@
         <a href="/" class="text-white mt-4">About me</a>
       </div>
     </div>
-  </Transition>
+  </Transition> -->
 
   <nav
-    class="mx-[5%] md:mx-28 mt-8 md:mt-5 flex justify-center items-center md:justify-between relative"
+    class="mx-[5%] md:mx-28 md:mt-10 mt-10 flex justify-center items-center md:justify-center relative"
   >
     <div>
-      <a href="/" class="text-white font-bold text-xl select-none text-center">
+      <a href="/" class="text-white font-bold text-2xl select-none text-center">
         Clipp.io</a
       >
     </div>
-    <Transition name="icon-menu">
+    <!-- <Transition name="icon-menu">
       <img
         src="../assets/bar-vertical.png"
         alt=""
@@ -46,18 +46,20 @@
       </RouterLink>
       <a href="/" class="text-white">Pricing</a>
       <a href="/" class="text-white">About me</a>
-    </div>
+    </div> -->
   </nav>
 </template>
 
 <script lang="ts">
 import { ref, computed } from "vue";
-import ButtonComponent from "./ButtonComponent.vue";
+// import ButtonComponent from "./ButtonComponent.vue";
 import { useRoute } from "vue-router";
 
 export default {
   name: "NavbarComponent",
-  components: { ButtonComponent },
+  components: {
+    // ButtonComponent
+  },
   setup() {
     const iconBarVerticalAnimation = ref(0);
     const barVerticalAnimation = ref(false);

@@ -4,7 +4,7 @@
   <TableLinksComponent></TableLinksComponent>
   <FeatureCardsList></FeatureCardsList>
 
-  <section class="flex mb-20 justify-center">
+  <!-- <section class="flex mb-20 justify-center">
     <RouterLink to="/sign-up">
       <ButtonComponent
         title="Create Account"
@@ -12,14 +12,14 @@
         textColor="#3C3C3C"
       ></ButtonComponent>
     </RouterLink>
-  </section>
+  </section> -->
 </template>
 
 <script lang="ts">
 import NavbarComponent from "@/components/NavbarComponent.vue";
 import LinkShortenerComponent from "@/components/LinkShortenerComponent.vue";
 import FeatureCardsList from "@/components/FeatureCardsList.vue";
-import ButtonComponent from "@/components/ButtonComponent.vue";
+// import ButtonComponent from "@/components/ButtonComponent.vue";
 import TableLinksComponent from "@/components/TableLinksComponent.vue";
 
 export default {
@@ -30,7 +30,7 @@ export default {
     LinkShortenerComponent,
     FeatureCardsList,
     TableLinksComponent,
-    ButtonComponent,
+    // ButtonComponent,
   },
   setup() {
     const show = () => {
