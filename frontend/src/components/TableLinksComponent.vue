@@ -1,46 +1,68 @@
 <template>
   <section class="mb-20 flex justify-center">
     <div
-      class="w-[75%] bg-[#1E2227] flex justify-center rounded-lg border-[#3E879B] border-2 flex-col"
+      class="w-[90%] md:w-[65%] flex justify-center rounded-lg border-[#3E879B] border-2 flex-col _ shadow-background"
     >
-      <h3 class="text-white text-xl font-semibold ml-16 mt-10 pb-10">Links</h3>
+      <h3 class="text-white text-xl font-semibold md:mx-14 mx-7 mt-5">Links</h3>
 
-      <div class="max-h-[30rem] overflow-y-auto">
-        <table class="max-w-[90%] ml-16 my-7">
-          <tr class="mb-20">
-            <th class="text-left text-white text-sm font-semibold">
-              Shortened link
-            </th>
-            <th class="text-left text-white text-sm font-semibold">
-              Original link
-            </th>
-            <th class="text-left text-white text-sm font-semibold">Clicks</th>
-          </tr>
-          <tbody class="overflow-y-auto max-h-20">
+      <section class="md:mx-14 mx-7">
+        <table class="my-7 flex flex-col">
+          <thead class="flex w-[100%]">
+            <tr class="flex justify-between w-[100%] mb-5">
+              <th class="text-left text-white text-sm font-semibold w-[45%]">
+                Shortened link
+              </th>
+              <th
+                class="text-left text-white text-sm font-semibold w-[45%] hidden lg:block"
+              >
+                Original link
+              </th>
+              <th
+                class="text-left text-white text-sm font-semibold w-[10%] mr-5 hidden lg:block"
+              >
+                Clicks
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="max-h-[25rem] min-h-[25rem] flex flex-col overflow-y-auto w-full"
+          >
             <tr
               v-for="(link, index) in linksArray"
               :key="index"
-              class="border-b-2 border-blue-400 border-opacity-20 mb-40 h-12"
+              class="border-b-2 border-blue-400 border-opacity-20 h-12 flex mb-5 pb-2"
             >
-              <td class="text-left text-sm text-[#62C5FF] w-1/4 relative">
+              <td
+                class="text-left text-sm text-[#62C5FF] relative w-[45%] flex"
+              >
                 <img
                   @click="copyLink"
-                  class="w-5 h-5 absolute -ml-8 cursor-pointer"
+                  class="w-5 h-5 cursor-pointer mr-2"
                   src="../assets/copy-link.png"
                   alt=""
                 />
-                <span id="id_link_table">{{ link.shorterLink }}</span>
+                <a :href="link.shorterLink" target="_blank" id="id_link_table">
+                  <span class="max-w-[1rem]">
+                    {{ link.shorterLink }}
+                  </span>
+                </a>
               </td>
-              <td class="text-left text-sm text-white w-1/2">
-                {{ link.originalLink }}
+              <td
+                class="text-left text-sm text-white w-[45%] truncate hidden lg:block"
+              >
+                <div class="max-w-[90%] truncate">
+                  <span class="w-[10rem]">
+                    {{ link.originalLink }}
+                  </span>
+                </div>
               </td>
-              <td class="text-left text-sm text-white w-1/4">
+              <td class="text-left text-sm text-white w-[10%] hidden lg:block">
                 {{ link.clicks }}
               </td>
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
     </div>
   </section>
   <NotificationComponent
@@ -142,4 +164,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.shadow-table:hover {
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.118);
+}
+
+/* Estilos para el scroll del tbody */
+tbody::-webkit-scrollbar {
+  width: 5px; /* Ancho del scroll */
+}
+
+tbody::-webkit-scrollbar-track {
+  background-color: transparent; /* Color de fondo de la pista del scroll */
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background-color: #4cbed9; /* Color del pulgar (la barra de scroll) */
+  border-radius: 4px; /* Borde redondeado del pulgar */
+}
+
+tbody::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color del pulgar al pasar el mouse */
+}
+</style>
