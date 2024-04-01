@@ -34,7 +34,7 @@
         class="w-5 h-5 ml-4 select-none mr-3 cursor-pointer"
         @click="copyLink"
       />
-      <div class="flex flex-col justify-center flex-1 overflow-hidden">
+      <div class="flex flex-col justify-center flex-1 overflow-hidden truncate">
         <span class="text-white text-sm font-light opacity-50"
           >Shortened link</span
         >
