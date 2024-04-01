@@ -73,7 +73,9 @@
 <script lang="ts">
 import { LinkToSaveLocalStorageInterface } from "@/interfaces/interfaces";
 import NotificationComponent from "./NotificationComponent.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+import { getClicksOfLinks, getLinksSavedInLocalStorage } from "@/utils";
 
 export default {
   name: "TableLinkComponent",
@@ -84,26 +86,11 @@ export default {
     //array to save links
     const linksArray = ref<LinkToSaveLocalStorageInterface[]>([]);
     const linkName = ref("");
-
-    const getLinksSavedInLocalStorage = () => {
-      const storedLinks = localStorage.getItem("savedLinks");
-      if (!storedLinks) return;
-
-      const linksToArray = JSON.parse(
-        storedLinks
-      ) as LinkToSaveLocalStorageInterface[];
-
-      linksArray.value = linksToArray;
-
-      return linksArray;
-    };
-
     //copy link
     const copyLink = () => {
       const link = document.getElementById("id_link_table")?.innerText;
 
       if (link) {
-        console.log(link);
         navigator.clipboard.writeText(link);
         showIfCopiedText.value = true;
 
@@ -113,44 +100,10 @@ export default {
       }
     };
 
-    //get clicks numbers
-    const getClicksOfLinks = () => {
-      const requestOptions = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+    onMounted(async () => {
+      linksArray.value = await getClicksOfLinks(); // Asigna los enlaces actualizados a linksArray
+    });
 
-      fetch("http://localhost:5000/api/link/getClicks", requestOptions)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          const links = getLinksSavedInLocalStorage();
-          data.data.forEach((item: any) => {
-            const linkToUpdate = links?.value.find(
-              (link) => link.shorterLink === item.shorterLink
-            );
-
-            // If link is found, update the number of clicks
-            if (linkToUpdate) {
-              linkToUpdate.clicks = item.clicks;
-            }
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    };
-
-    getClicksOfLinks();
-    // localStorage.clear();
-
-    console.log(linksArray.value);
     return {
       copyLink,
       showIfCopiedText,
