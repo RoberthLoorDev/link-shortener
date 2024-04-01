@@ -83,6 +83,7 @@ import router from "@/router";
 import { defineComponent } from "vue";
 import { ref } from "vue";
 import NotificationComponent from "./NotificationComponent.vue";
+import { apiUrlBase } from "@/config";
 
 export default defineComponent({
   name: "LoginComponent",
@@ -110,7 +111,7 @@ export default defineComponent({
         body: JSON.stringify(formData.value),
       };
 
-      fetch("http://localhost:5000/api/auth/login", requestOptions)
+      fetch(`${apiUrlBase}/auth/login`, requestOptions)
         .then((response) => {
           if (!response) {
             throw new Error("Error");

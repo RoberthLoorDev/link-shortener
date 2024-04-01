@@ -136,6 +136,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import NotificationComponent from "./NotificationComponent.vue";
+import { apiUrlBase } from "@/config";
 
 export default {
   components: {
@@ -161,7 +162,7 @@ export default {
         body: JSON.stringify(formData.value),
       };
 
-      fetch("http://localhost:5000/api/auth/register-user", requestOptions)
+      fetch(`${apiUrlBase}/auth/register-user`, requestOptions)
         .then((response) => {
           if (!response) {
             throw new Error("Error");

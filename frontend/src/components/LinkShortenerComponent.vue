@@ -81,6 +81,7 @@ import { ref } from "vue";
 import NotificationComponent from "./NotificationComponent.vue";
 import ButtonComponent from "./ButtonComponent.vue";
 import { LinkToSaveLocalStorageInterface } from "../interfaces/interfaces";
+import { apiUrlBase } from "@/config";
 
 export default {
   name: "LinkShortenerComponent",
@@ -106,7 +107,7 @@ export default {
         body: JSON.stringify(postData.value),
       };
 
-      fetch("http://localhost:5000/api/link/createLinkShorter", requestOptions)
+      fetch(`${apiUrlBase}/link/createLinkShorter`, requestOptions)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Error");

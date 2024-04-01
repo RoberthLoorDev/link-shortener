@@ -1,6 +1,5 @@
+import { apiUrlBase } from "@/config";
 import { LinkToSaveLocalStorageInterface } from "@/interfaces/interfaces";
-
-const apiBase = process.env.VUE_APP_API_URL;
 
 export const getLinksSavedInLocalStorage = ():
   | LinkToSaveLocalStorageInterface[]
@@ -27,9 +26,8 @@ export const getClicksOfLinks = (): Promise<
         "Content-Type": "application/json",
       },
     };
-    console.log(apiBase);
 
-    fetch(`${apiBase}/link/getClicks`, requestOptions)
+    fetch(`${apiUrlBase}/link/getClicks`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error");
