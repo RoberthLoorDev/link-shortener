@@ -1,11 +1,11 @@
 <template>
-  <section class="mb-20 flex justify-center">
+  <section v-show="linksArray.length > 0" class="mb-20 flex justify-center">
     <div
       class="w-[90%] md:w-[65%] flex justify-center rounded-lg border-[#3E879B] border-2 flex-col _ shadow-background"
     >
       <h3 class="text-white text-xl font-semibold md:mx-14 mx-7 mt-5">Links</h3>
 
-      <section class="md:mx-14 mx-7">
+      <div class="md:mx-14 mx-7">
         <table class="my-7 flex flex-col">
           <thead class="flex w-[100%]">
             <tr class="flex justify-between w-[100%] mb-5">
@@ -24,9 +24,7 @@
               </th>
             </tr>
           </thead>
-          <tbody
-            class="max-h-[25rem] min-h-[25rem] flex flex-col overflow-y-auto w-full"
-          >
+          <tbody class="max-h-[25rem] flex flex-col overflow-y-auto w-full">
             <tr
               v-for="(link, index) in linksArray"
               :key="index"
@@ -62,7 +60,7 @@
             </tr>
           </tbody>
         </table>
-      </section>
+      </div>
     </div>
   </section>
   <NotificationComponent
@@ -143,8 +141,6 @@ export default {
               linkToUpdate.clicks = item.clicks;
             }
           });
-
-          console.log(links?.value);
         })
         .catch((error) => {
           console.error(error);
@@ -152,7 +148,9 @@ export default {
     };
 
     getClicksOfLinks();
+    // localStorage.clear();
 
+    console.log(linksArray.value);
     return {
       copyLink,
       showIfCopiedText,
