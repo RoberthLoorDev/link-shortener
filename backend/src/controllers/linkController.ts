@@ -13,7 +13,7 @@ export const createLinkShorter = async (req: Request, res: Response) => {
         const protocol = req.protocol
         const hostname = req.hostname
 
-        const shorterURL = `${protocol}://${hostname}:5000/${formattedLink}${randomUrl}`
+        const shorterURL = `${protocol}://${hostname}/${formattedLink}${randomUrl}`
 
         const newLink = new LinkModel({
             originalLink,
