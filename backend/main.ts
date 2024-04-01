@@ -23,8 +23,4 @@ app.use(passport.session())
 app.use("/api", Routes)
 app.get("/:shorterUrl", redirectToUrl)
 
-app.get("/", (req, res) => {
-    res.send("<h1>Hola mundo</h1>")
-})
-
 app.listen(5000, () => {})
