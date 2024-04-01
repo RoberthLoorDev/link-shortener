@@ -13,6 +13,8 @@
       ></ButtonComponent>
     </RouterLink>
   </section> -->
+
+  <FooterComponent></FooterComponent>
 </template>
 
 <script lang="ts">
@@ -21,6 +23,7 @@ import LinkShortenerComponent from "@/components/LinkShortenerComponent.vue";
 import FeatureCardsList from "@/components/FeatureCardsList.vue";
 // import ButtonComponent from "@/components/ButtonComponent.vue";
 import TableLinksComponent from "@/components/TableLinksComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   name: "HomePage",
@@ -31,6 +34,7 @@ export default {
     FeatureCardsList,
     TableLinksComponent,
     // ButtonComponent,
+    FooterComponent,
   },
   setup() {
     const show = () => {
