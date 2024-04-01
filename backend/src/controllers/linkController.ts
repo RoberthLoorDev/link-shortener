@@ -41,7 +41,7 @@ export const redirectToUrl = async (req: Request, res: Response) => {
     try {
         const { shorterUrl } = req.params
 
-        const shorterURL = `${req.protocol}://${req.hostname}:5000/${shorterUrl}`
+        const shorterURL = `${req.protocol}://${req.hostname}/${shorterUrl}`
 
         const linkDataExist = await LinkModel.findOne({
             shorterLink: shorterURL,
