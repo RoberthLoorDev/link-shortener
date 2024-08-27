@@ -1,6 +1,6 @@
 <template>
   <div
-    class="shadow w-56 h-auto flex flex-col rounded-2xl relative mb-5 mx-3 shadow-background border-transparent"
+    class="shadow w-56 h-auto flex flex-col rounded-2xl relative mb-5 mx-3 border-transparent cursor-pointer hover:scale-110 duration-300"
     :style="{
       borderColor: borderColor ? borderColor : '#222F3C',
       borderWidth: '2px',
