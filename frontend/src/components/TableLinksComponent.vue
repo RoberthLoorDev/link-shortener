@@ -1,15 +1,15 @@
 <template>
-  <section class="mb-20 flex justify-center">
+  <section class="mb-20 flex justify-center w-[95%] md:w-[50rem]">
     <div
-      class="w-[90%] md:w-[65%] flex justify-center rounded-lg border-[#3E879B] border-2 flex-col _ shadow-background"
+      class="w-full flex justify-center rounded-lg border-[#3E879B] border-2 flex-col _ shadow-background"
     >
-      <h3 class="text-white text-xl font-semibold md:mx-14 mx-7 mt-5">Links</h3>
+      <h3 class="text-white text-xl font-semibold mx-7 mt-5">Links</h3>
 
-      <div class="md:mx-14 mx-7">
+      <div class="mx-7">
         <table class="my-7 flex flex-col">
           <thead class="flex w-[100%]">
             <tr class="flex justify-between w-[100%] mb-5">
-              <th class="text-left text-white text-sm font-semibold w-[45%]">
+              <th class="text-left text-white text-sm font-semibold w-[15%]">
                 Shortened link
               </th>
               <th
@@ -40,7 +40,7 @@
               class="border-b-2 border-blue-400 border-opacity-20 h-12 flex mb-5 pb-2"
             >
               <td
-                class="text-left text-sm text-[#62C5FF] relative w-[45%] flex"
+                class="text-left text-sm text-[#62C5FF] relative w-[30%] flex"
               >
                 <img
                   @click="copyLink"
@@ -55,7 +55,7 @@
                 </a>
               </td>
               <td
-                class="text-left text-sm text-white w-[45%] truncate hidden lg:block"
+                class="text-left text-sm text-white w-[70%] truncate hidden lg:block"
               >
                 <div class="max-w-[90%] truncate">
                   <span class="w-[10rem]">
@@ -126,7 +126,7 @@ export default {
 
 <style lang="scss" scoped>
 .shadow-table:hover {
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.118);
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.118);
 }
 
 /* Styles for tbody scroll */

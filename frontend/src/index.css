@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(180deg, #1f3c4d 0%, #1f1a24 50.08%);
+  background: linear-gradient(180deg, #274d63 0%, #19151d 50.08%);
 }
 
 ::placeholder {

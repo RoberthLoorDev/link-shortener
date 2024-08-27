@@ -1,20 +1,22 @@
 <template>
-  <NavbarComponent></NavbarComponent>
-  <LinkShortenerComponent></LinkShortenerComponent>
-  <TableLinksComponent></TableLinksComponent>
-  <FeatureCardsList></FeatureCardsList>
+  <div class="flex flex-col items-center">
+    <NavbarComponent></NavbarComponent>
+    <LinkShortenerComponent></LinkShortenerComponent>
+    <TableLinksComponent></TableLinksComponent>
+    <FeatureCardsList></FeatureCardsList>
 
-  <!-- <section class="flex mb-20 justify-center">
-    <RouterLink to="/sign-up">
-      <ButtonComponent
-        title="Create Account"
-        backgroundColor="#B2F1FF"
-        textColor="#3C3C3C"
-      ></ButtonComponent>
-    </RouterLink>
-  </section> -->
+    <!-- <section class="flex mb-20 justify-center">
+      <RouterLink to="/sign-up">
+        <ButtonComponent
+          title="Create Account"
+          backgroundColor="#B2F1FF"
+          textColor="#3C3C3C"
+        ></ButtonComponent>
+      </RouterLink>
+    </section> -->
 
-  <FooterComponent></FooterComponent>
+    <FooterComponent></FooterComponent>
+  </div>
 </template>
 
 <script lang="ts">

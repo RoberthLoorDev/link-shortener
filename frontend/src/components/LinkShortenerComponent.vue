@@ -1,14 +1,12 @@
 <template>
   <!-- input link section -->
-  <section class="flex items-center flex-col mt-14">
+  <section class="flex items-center flex-col mt-14 w-[95%] md:w-[50rem]">
     <h1 class="text-white text-xl font-medium">PREMIUM URL SHORTENER</h1>
-    <div
-      class="bg-[#252429] w-[90%] md:w-[65%] flex h-14 mt-8 rounded-lg items-center"
-    >
+    <div class="bg-[#252429] w-full flex h-14 mt-8 rounded-lg items-center">
       <img src="../assets/link.png" alt="" class="w-5 h-5 ml-4 select-none" />
       <input
         type="text"
-        class="bg-[#252429] outline-none rounded-lg text-white indent-5 ::placeholder flex-1"
+        class="bg-[#252429] outline-none rounded-lg text-white indent-5 :placeholder flex-1"
         placeholder="Paste a long link"
         v-model="postData.originalLink"
       />
@@ -24,9 +22,10 @@
         class="mr-2"
       ></ButtonComponent>
     </div>
+
     <div
       v-show="showResponse"
-      class="animate-fade-down animate-delay-50 animate-ease-in-out animate-fill-forwards flex items-center w-[90%] md:w-[65%] h-16 mt-3 shadow border-[1px] border-[#3E879B] rounded-lg rounded-br-3xl relative"
+      class="animate-fade-down animate-delay-50 animate-ease-in-out animate-fill-forwards flex items-center w-[50rem] h-16 mt-3 shadow border-[1px] border-[#3E879B] rounded-lg rounded-br-3xl relative"
     >
       <img
         src="../assets/copy-link.png"
@@ -34,7 +33,8 @@
         class="w-5 h-5 ml-4 select-none mr-3 cursor-pointer"
         @click="copyLink"
       />
-      <div class="flex flex-col justify-center flex-1 overflow-hidden truncate">
+
+      <div class="flex flex-col justify-center overflow-hidden truncate flex-1">
         <span class="text-white text-sm font-light opacity-50"
           >Shortened link</span
         >
@@ -45,6 +45,7 @@
           >{{ shortenedLink }}</span
         >
       </div>
+
       <img
         src="../assets/arrow-right.png"
         alt=""

@@ -36,6 +36,7 @@ passport.use(
             usernameField: "email",
             passReqToCallback: true,
         },
+
         async (req: Request, email: string, password: string, done: any) => {
             try {
                 const userExist = await Models.UserModel.findOne({ email })
